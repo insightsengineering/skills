@@ -55,7 +55,7 @@ git worktree add "../${PACKAGE_NAME}-${BRANCH_B//\//-}" "$BRANCH_B"
 
 ## Running the example app (each branch)
 
-1. `cd` to package root on that branch; ensure dependencies (`devtools::install_deps()`, `pkgload::load_all()`).
+1. `cd` to package root on that branch; ensure dependencies (`pak::local_install_deps`, `pkgload::load_all()`).
 2. Run the **`@examples`** for **`X`** (`example(X, local = TRUE)`, temp script from roxygen, etc.). Avoid setting env var **`SHINY_PORT`** (it confuses Shiny); pass **`port`** only inside **`shiny::runApp(app, host = "0.0.0.0", port = …)`**.
 3. Use distinct ports (e.g. **3838** = BRANCH A, **3840** = BRANCH B).
 
