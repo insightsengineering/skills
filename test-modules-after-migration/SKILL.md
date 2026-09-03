@@ -80,10 +80,12 @@ Use **browser MCP** or **headless Chrome** only if you can satisfy **wait** rule
 
 **Naming files** (example pattern — stay consistent):
 
-- `<PACKAGE_NAME>/.test-module-screenshots/<X>-<branch-a-slug>-module-output.png`
-- `<PACKAGE_NAME>/.test-module-screenshots/<X>-<branch-a-slug>-show-r-code.png`
-- `<PACKAGE_NAME>/.test-module-screenshots/<X>-<branch-a-slug>-report-show-report.png`
-- Same triple for BRANCH B (e.g. `<X>-<branch-b-slug>-module-output.png`, …).
+Use one unique **`RUN_ID`** per skill run, for example `YYYYMMDD-HHMMSS`, and include it in every output filename.
+
+- `<PACKAGE_NAME>/.test-module-screenshots/<RUN_ID>-<X>-<branch-a-slug>-module-output.png`
+- `<PACKAGE_NAME>/.test-module-screenshots/<RUN_ID>-<X>-<branch-a-slug>-show-r-code.png`
+- `<PACKAGE_NAME>/.test-module-screenshots/<RUN_ID>-<X>-<branch-a-slug>-report-show-report.png`
+- Same triple for BRANCH B (e.g. `<RUN_ID>-<X>-<branch-b-slug>-module-output.png`, …).
 
 Branch slug guidance: replace `/` with `-` and keep the branch label readable (e.g. `main`, `redesign_extraction@main`, `feature-abc-123`).
 
@@ -93,11 +95,11 @@ Optional: repeat **A** after a **encoding** change (same change on both branches
 
 Create **one** markdown file per run, for example:
 
-**`<PACKAGE_NAME>/.test-module-reports/<YYYY-MM-DD>-<X>-<branch-a-slug>-vs-<branch-b-slug>.md`**
+**`<PACKAGE_NAME>/.test-module-reports/<RUN_ID>-<X>-<branch-a-slug>-vs-<branch-b-slug>.md`**
 
 Also create a **GitHub comment draft markdown** file, for example:
 
-**`<PACKAGE_NAME>/.test-module-reports/<YYYY-MM-DD>-<X>-gh-comment.md`**
+**`<PACKAGE_NAME>/.test-module-reports/<RUN_ID>-<X>-gh-comment.md`**
 
 Treat these as two required output assets with separate templates:
 
@@ -117,12 +119,12 @@ Programmatic runs should, where possible, **compare captured text** (module outp
 
 Populate placeholders in `assets/report-template.md` and write to:
 
-- `<PACKAGE_NAME>/.test-module-reports/<YYYY-MM-DD>-<X>-<branch-a-slug>-vs-<branch-b-slug>.md`
+- `<PACKAGE_NAME>/.test-module-reports/<RUN_ID>-<X>-<branch-a-slug>-vs-<branch-b-slug>.md`
 ## Report back (chat)
 
 Populate placeholders in `assets/github-comment-template.md` and write to:
 
-- `<PACKAGE_NAME>/.test-module-reports/<YYYY-MM-DD>-<X>-gh-comment.md`
+- `<PACKAGE_NAME>/.test-module-reports/<RUN_ID>-<X>-gh-comment.md`
 
 In the user’s chat message, give short pointers to:
 
